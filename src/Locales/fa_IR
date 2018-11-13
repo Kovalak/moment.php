@@ -1,0 +1,52 @@
+<?php
+
+// locale: great britain Persian (fa-IR)
+// author: Reza Rezaei https://radib.com
+
+return array(
+    "months"        => explode('_', 'January_February_March_April_May_June_July_August_September_October_November_December'),
+    "monthsNominative"        => explode('_', 'January_February_March_April_May_June_July_August_September_October_November_December'),
+    "monthsShort"   => explode('_', 'Jan_Feb_Mar_Apr_May_ژوئن_Jul_Aug_Sep_Oct_Nov_Dec'),
+    "weekdays"      => explode('_', 'Monday_Tuesday_Wednesday_Thursday_Friday_Saturday_Sunday'),
+    "weekdaysShort" => explode('_', 'دو_سه_چه_پنج_جم_شن_یک'),
+    "calendar"      => array(
+        "sameDay"  => '[امروز]',
+        "nextDay"  => '[فردا]',
+        "lastDay"  => '[دیروز]',
+        "lastWeek" => '[قبل] l',
+        "sameElse" => 'l',
+        "withTime" => '[at] H:i',
+        "default"  => 'd/m/Y',
+    ),
+    "relativeTime"  => array(
+        "future" => 'تا %s',
+        "past"   => '%s پیش',
+        "s"      => 'چند ثانیه',
+        "m"      => 'یک دقیقه',
+        "mm"     => '%d دقیقه',
+        "h"      => 'یک ساعت',
+        "hh"     => '%d ساعت',
+        "d"      => 'یک روز',
+        "dd"     => '%d روز',
+        "M"      => 'یک ماه',
+        "MM"     => '%d ماه',
+        "y"      => 'یک سال',
+        "yy"     => '%d سال',
+    ),
+    "ordinal"       => function ($number)
+    {
+        $n = $number % 100;
+        $ends = array('th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th');
+
+        if ($n >= 11 && $n <= 13)
+        {
+            return $number . '[th]';
+        }
+
+        return $number . '[' . $ends[$number % 10] . ']';
+    },
+    "week"          => array(
+        "dow" => 1, // Monday is the first day of the week.
+        "doy" => 4  // The week that contains Jan 4th is the first week of the year.
+    ),
+);
